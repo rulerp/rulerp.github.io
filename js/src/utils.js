@@ -5,28 +5,24 @@ NexT.utils = NexT.$u = {
    * Wrap images with fancybox support.
    */
   wrapImageWithFancyBox: function () {
-    $('.content img')
-      .not('[hidden]')
-      .not('.group-picture img, .post-gallery img')
-      .each(function () {
-        var $image = $(this);
-        var imageTitle = $image.attr('title');
-        var $imageWrapLink = $image.parent('a');
+    $('.content img').not('.group-picture img, .post-gallery img').each(function () {
 
-        if ($imageWrapLink.size() < 1) {
-          $imageWrapLink = $image.wrap('<a href="' + this.getAttribute('src') + '"></a>').parent('a');
-        }
+      var $image = $(this);
+      var imageTitle = $image.attr('title');
+      var $imageWrapLink = $image.parent('a');
 
-        $imageWrapLink.addClass('fancybox fancybox.image');
-        $imageWrapLink.attr('rel', 'group');
+      if ($imageWrapLink.size() < 1) {
+        $imageWrapLink = $image.wrap('<a href="' + this.getAttribute('src') + '"></a>').parent('a');
+      }
 
-        if (imageTitle) {
-          $imageWrapLink.append('<p class="image-caption">' + imageTitle + '</p>');
+      $imageWrapLink.addClass('fancybox');
+      $imageWrapLink.attr('rel', 'group');
 
-          //make sure img title tag will show correctly in fancybox
-          $imageWrapLink.attr('title', imageTitle);
-        }
-      });
+      if (imageTitle) {
+        $imageWrapLink.append('<p class="image-caption">' + imageTitle + '</p>');
+        $imageWrapLink.attr('title', imageTitle); //make sure img title tag will show correctly in fancybox
+      }
+    });
 
     $('.fancybox').fancybox({
       helpers: {
@@ -44,49 +40,16 @@ NexT.utils = NexT.$u = {
     });
   },
 
-  registerESCKeyEvent: function () {
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        $('.search-popup').hide();
-        $('.search-popup-overlay').remove();
-        $('body').css('overflow', '');
-      }
-    });
-  },
-
   registerBackToTop: function () {
     var THRESHOLD = 50;
     var $top = $('.back-to-top');
 
     $(window).on('scroll', function () {
       $top.toggleClass('back-to-top-on', window.pageYOffset > THRESHOLD);
-
-      var scrollTop = $(window).scrollTop();
-      var docHeight = $(document).height();
-      var winHeight = $(window).height();
-      var scrollPercent = (scrollTop) / (docHeight - winHeight);
-      var scrollPercentRounded = Math.round(scrollPercent*100);
-      $('#scrollpercent>span').html(scrollPercentRounded);
     });
 
     $top.on('click', function () {
       $('body').velocity('scroll');
-    });
-  },
-
-  registerNavToggle: function () {
-    $('.site-nav-toggle button').on('click', function () {
-      var $siteNav = $('.site-nav');
-      var ON_CLASS_NAME = 'site-nav-on';
-      var isSiteNavOn = $siteNav.hasClass(ON_CLASS_NAME);
-      var animateAction = isSiteNavOn ? 'slideUp' : 'slideDown';
-      var animateCallback = isSiteNavOn ? 'removeClass' : 'addClass';
-
-      $siteNav.stop()[animateAction]('fast', function () {
-        $siteNav[animateCallback](ON_CLASS_NAME);
-      });
     });
   },
 
@@ -223,10 +186,6 @@ NexT.utils = NexT.$u = {
     return CONFIG.scheme === 'Pisces';
   },
 
-  isServant: function () {
-    return CONFIG.scheme === 'Servant';
-  },
-
   getScrollbarWidth: function () {
     var $div = $('<div />').addClass('scrollbar-measure').prependTo('body');
     var div = $div[0];
@@ -243,6 +202,6 @@ NexT.utils = NexT.$u = {
    * @returns {Boolean}
    */
   needAffix: function () {
-    return this.isPisces() || this.isServant();
+    return this.isPisces();
   }
 };
