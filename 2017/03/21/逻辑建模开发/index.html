@@ -88,42 +88,42 @@
 
 
 <meta name="description" content="[toc]
-##1.需要登录
-
+1.需要登录
 直接打开，打开后跳到登陆页面，登陆之后会重定向到刚才的页面。
-暂不支持线上##2.不需要登录
-没有过滤器，展示静态数据###2.1分析
+暂不支持线上2.不需要登录
+没有过滤器，展示静态数据2.1分析
 由于是生成静态页面，所以可以考虑将页面数据保存到后台
-如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好###2.2设计
+如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好2.2设计
 每次分享后端生成一条分享记录，生成失效时间保存下来
-生成一个url，包含">
+生成一个url，包含分享id
+后端异步生成">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rulerp的第一个blog">
 <meta property="og:url" content="http://yoursite.com/2017/03/21/逻辑建模开发/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="[toc]
-##1.需要登录
-
+1.需要登录
 直接打开，打开后跳到登陆页面，登陆之后会重定向到刚才的页面。
-暂不支持线上##2.不需要登录
-没有过滤器，展示静态数据###2.1分析
+暂不支持线上2.不需要登录
+没有过滤器，展示静态数据2.1分析
 由于是生成静态页面，所以可以考虑将页面数据保存到后台
-如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好###2.2设计
+如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好2.2设计
 每次分享后端生成一条分享记录，生成失效时间保存下来
-生成一个url，包含">
-<meta property="og:updated_time" content="2017-03-21T07:36:25.000Z">
+生成一个url，包含分享id
+后端异步生成">
+<meta property="og:updated_time" content="2017-03-21T07:39:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rulerp的第一个blog">
 <meta name="twitter:description" content="[toc]
-##1.需要登录
-
+1.需要登录
 直接打开，打开后跳到登陆页面，登陆之后会重定向到刚才的页面。
-暂不支持线上##2.不需要登录
-没有过滤器，展示静态数据###2.1分析
+暂不支持线上2.不需要登录
+没有过滤器，展示静态数据2.1分析
 由于是生成静态页面，所以可以考虑将页面数据保存到后台
-如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好###2.2设计
+如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好2.2设计
 每次分享后端生成一条分享记录，生成失效时间保存下来
-生成一个url，包含">
+生成一个url，包含分享id
+后端异步生成">
 
 
 
@@ -349,13 +349,12 @@
 
       
         <p>[toc]</p>
-<p>##1.需要登录</p>
-<ul>
+<h2 id="1-需要登录"><a href="#1-需要登录" class="headerlink" title="1.需要登录"></a>1.需要登录</h2><ul>
 <li>直接打开，打开后跳到登陆页面，登陆之后会重定向到刚才的页面。</li>
-<li>暂不支持线上<br>##2.不需要登录</li>
-<li>没有过滤器，展示静态数据<br>###2.1分析</li>
+<li>暂不支持线上<h2 id="2-不需要登录"><a href="#2-不需要登录" class="headerlink" title="2.不需要登录"></a>2.不需要登录</h2></li>
+<li>没有过滤器，展示静态数据<h3 id="2-1分析"><a href="#2-1分析" class="headerlink" title="2.1分析"></a>2.1分析</h3></li>
 <li>由于是生成静态页面，所以可以考虑将页面数据保存到后台</li>
-<li>如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好<br>###2.2设计</li>
+<li>如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好<h3 id="2-2设计"><a href="#2-2设计" class="headerlink" title="2.2设计"></a>2.2设计</h3></li>
 <li>每次分享后端生成一条分享记录，生成失效时间保存下来</li>
 <li>生成一个url，包含分享id</li>
 <li>后端异步生成静态数据，由于数据可能会很多，如果保存到数据库中的话可能会影响newbi的数据库性能，所以可以考虑放到ftp中</li>
@@ -454,8 +453,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -499,6 +507,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-需要登录"><span class="nav-number">1.</span> <span class="nav-text">1.需要登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-不需要登录"><span class="nav-number">2.</span> <span class="nav-text">2.不需要登录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1分析"><span class="nav-number">2.1.</span> <span class="nav-text">2.1分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2设计"><span class="nav-number">2.2.</span> <span class="nav-text">2.2设计</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
