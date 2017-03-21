@@ -1,79 +1,24 @@
-extends base
-
-block head
-  if is_tag()
-    title 标签：#{page.tag} | #{config.title}
-  else if page.category
-    title 分类：#{page.category} | #{config.title}
-  else if page.year && page.month
-    title 归档：#{page.year} 年 #{page.month} 月 | #{config.title}
-  else if !page.posts
-    title #{page.title} | #{config.title}
-  else
-    title= config.title
-
-mixin article(post)
-  article
-    header
-      if page.posts
-        h2
-          a(href=url_for(post.path))= post.title
-      else
-        small.right
-          a(target='_blank', href=sourceOfPost(post, theme.source_url)) 查看源代码
-        h1= post.title
-
-    .article-meta.clearfix
-      time.left= post.date.format(config.date_format)
-
-      if post.categories
-        ul.tags.left
-          - post.categories.each(function(category) {
-            li
-              a(href=url_for(category.path))= category.name
-          - });
-
-      if post.tags
-        ul.tags.right
-          - post.tags.each(function(tag) {
-            li
-              a(href=url_for(tag.path))= tag.name
-          - });
-
-    .markdown-body!= post.content
-
-    if !page.posts && theme.duoshuo
-      .ds-thread(data-thread-key=commentKey(post), data-title=post.title, data-url=post.permalink)
-
-  if !page.posts && post.appends
-    for append in formatArray(post.appends)
-      .article-widget
-        +widget-inter(append)
-
-block body
-  for banner in formatArray(theme.banners)
-    .article-widget
-      +widget-inter(banner)
-
-  if is_tag()
-    .article-widget
-      strong 标签 ##{page.tag}
-
-  if page.category
-    .article-widget
-      strong 分类 ##{page.category}
-
-  if page.year && page.month
-    .article-widget
-      strong 归档 #{page.year} 年 #{page.month} 月
-
-  if page.posts
-    - page.posts.each(function(post) {
-      +article(post)
-    - });
-
-    .archive-pagination
-      .paginator!= fixPaginator(paginator({prev_text: '&laquo;', next_text: '&raquo;'}))
-
-  else
-    +article(page)
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="alternate" type="application/rss+xml" title="Hexo" href="https://jysperm.me/atom.xml"><link rel="stylesheet" href="/styles.css"><title>分享功能后端整理.md | Hexo</title></head><body><div class="container"><div class="columns page-header"><h1>Hexo</h1></div><div class="columns"><div class="navigation"><nav class="menus-main"><a href="/" class="favicon"><img alt="Hexo" src="/favicon.png"></a><a href="/">Home</a></nav><nav class="right menus-right"><a href="/atom.xml">RSS</a><a target="_blank" href="hexo-theme-simpleblock">fork on Github</a></nav></div></div><div class="columns"><div class="block-body column three-fourths"><div class="article-widget"><a href="https://github.com/jysperm/hexo-theme-simpleblock">与精子同款的博客主题 simpleblock 现已发布！</a></div><article><header><small class="right"><a target="_blank" href="null_posts%2F%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD%E5%90%8E%E7%AB%AF%E6%95%B4%E7%90%86.md">查看源代码</a></small><h1>分享功能后端整理.md</h1></header><div class="article-meta clearfix"><time class="left">2017-03-21</time><ul class="tags left"></ul><ul class="tags right"></ul></div><div class="markdown-body"><h2 id="1-需要登录"><a href="#1-需要登录" class="headerlink" title="1.需要登录"></a>1.需要登录</h2><ul>
+<li>直接打开，打开后跳到登陆页面，登陆之后会重定向到刚才的页面。</li>
+<li>暂不支持线上<h2 id="2-不需要登录"><a href="#2-不需要登录" class="headerlink" title="2.不需要登录"></a>2.不需要登录</h2></li>
+<li>没有过滤器，展示静态数据<h3 id="2-1分析"><a href="#2-1分析" class="headerlink" title="2.1分析"></a>2.1分析</h3></li>
+<li>由于是生成静态页面，所以可以考虑将页面数据保存到后台</li>
+<li>如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好<h3 id="2-2设计"><a href="#2-2设计" class="headerlink" title="2.2设计"></a>2.2设计</h3></li>
+<li>每次分享后端生成一条分享记录，生成失效时间保存下来</li>
+<li>生成一个url，包含分享id</li>
+<li>后端异步生成静态数据，由于数据可能会很多，如果保存到数据库中的话可能会影响newbi的数据库性能，所以可以考虑放到ftp中</li>
+<li>由于后端需要将数据缓存到ftp，所以前端页面需要收集当前页面中的数据，推送到后台。</li>
+<li>缓存数据：前端可以直接将数据收集起来，做成一个大的数据发送到后端，这么做带你分享的时候，不知道前端的性能如何，而且仪表盘中有一些图片可能没法打包成一分数据。</li>
+<li>缓存页面：页面缓存不知道前端能不能实现</li>
+</ul>
+</div></article></div><div class="block-sidebar column one-fourth"><div class="widget text-content"><p>Simple Block 是一个基于线框设计的简单的 Hexo 主题，拆分自 <a href="https://jysperm.me">精子的博客</a>。
+支持使用 Jade 或 Markdown 来向边栏添加小部件，或向正文前添加横幅。</p>
+<p>技术栈：</p>
+<ul>
+<li>Jade - 页面模板</li>
+<li>Less/Sass - 页面样式</li>
+<li>Bower - 前端包管理器</li>
+<li>CoffeeScript - Hexo 拓展脚本</li>
+<li>Gulp - 编译工具</li>
+</ul>
+</div><div class="widget tags"></div><div class="widget archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">2</span></li></ul></div><div class="widget text-content"><p>该博客使用基于 &nbsp;<a href="http://hexo.io">Hexo</a>&nbsp; 的 &nbsp;<a href="https://github.com/jysperm/hexo-theme-simpleblock">simpleblock</a>&nbsp; 主题。博客内容使用 &nbsp;<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn">CC BY-NC-SA 3.0</a>&nbsp; 授权发布。最后生成于 2017-03-21.</p></div></div></div></div></body></html>
