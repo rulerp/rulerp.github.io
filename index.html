@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -100,7 +100,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -284,7 +284,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-21T15:02:52+08:00">
                 2017-03-21
@@ -417,7 +417,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-21T14:02:52+08:00">
                 2017-03-21
@@ -470,7 +470,6 @@
 <li>缓存数据：前端可以直接将数据收集起来，做成一个大的数据发送到后端，这么做带你分享的时候，不知道前端的性能如何，而且仪表盘中有一些图片可能没法打包成一分数据。</li>
 <li>缓存页面：页面缓存不知道前端能不能实现</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> String <span class="title">generateOnConditionSql</span><span class="params">(CubeTableRelation relation)</span> </span>&#123;</div><div class="line"></div><div class="line">    List&lt;ConditionFilterVO&gt; filterVOs = JsonUtils.parse2List(relation.getConditionContent(), ConditionFilterVO.class);</div><div class="line">    FilterManager filterManager = FilterManager.getInstance();</div><div class="line">    <span class="keyword">return</span> filterVOs.stream()</div><div class="line">            .map(filterVO -&gt; &#123;</div><div class="line">                CubeTableFieldFilter cubeTableFieldFilter = FilterValueUtils.getInstance(filterVO.getOperator()).construct(filterVO.fetchCubeTableField(), filterVO.getValue());</div><div class="line">                IFilter iFilter = filterManager.getFilter(cubeTableFieldFilter.getFilterType());</div><div class="line"></div><div class="line">                <span class="keyword">return</span> iFilter.generateCubeTableFieldSql(cubeTableFieldFilter);</div><div class="line">            &#125;)</div><div class="line">            .collect(Collectors.joining(SqlConstant._and));</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         
@@ -551,7 +550,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -605,13 +604,13 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
