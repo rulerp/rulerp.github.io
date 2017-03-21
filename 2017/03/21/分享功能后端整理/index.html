@@ -109,7 +109,7 @@
 每次分享后端生成一条分享记录，生成失效时间保存下来
 生成一个url，包含分享id
 后端异步生成静态数据，由">
-<meta property="og:updated_time" content="2017-03-21T07:48:31.000Z">
+<meta property="og:updated_time" content="2017-03-21T07:52:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分享功能后端整理.md">
 <meta name="twitter:description" content="1.需要登录
@@ -358,6 +358,7 @@
 <li>缓存数据：前端可以直接将数据收集起来，做成一个大的数据发送到后端，这么做带你分享的时候，不知道前端的性能如何，而且仪表盘中有一些图片可能没法打包成一分数据。</li>
 <li>缓存页面：页面缓存不知道前端能不能实现</li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> String <span class="title">generateOnConditionSql</span><span class="params">(CubeTableRelation relation)</span> </span>&#123;</div><div class="line"></div><div class="line">    List&lt;ConditionFilterVO&gt; filterVOs = JsonUtils.parse2List(relation.getConditionContent(), ConditionFilterVO.class);</div><div class="line">    FilterManager filterManager = FilterManager.getInstance();</div><div class="line">    <span class="keyword">return</span> filterVOs.stream()</div><div class="line">            .map(filterVO -&gt; &#123;</div><div class="line">                CubeTableFieldFilter cubeTableFieldFilter = FilterValueUtils.getInstance(filterVO.getOperator()).construct(filterVO.fetchCubeTableField(), filterVO.getValue());</div><div class="line">                IFilter iFilter = filterManager.getFilter(cubeTableFieldFilter.getFilterType());</div><div class="line"></div><div class="line">                <span class="keyword">return</span> iFilter.generateCubeTableFieldSql(cubeTableFieldFilter);</div><div class="line">            &#125;)</div><div class="line">            .collect(Collectors.joining(SqlConstant._and));</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
