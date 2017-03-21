@@ -87,16 +87,43 @@
 
 
 
-<meta name="description" content="12345">
+<meta name="description" content="[toc]
+##1.需要登录
+
+直接打开，打开后跳到登陆页面，登陆之后会重定向到刚才的页面。
+暂不支持线上##2.不需要登录
+没有过滤器，展示静态数据###2.1分析
+由于是生成静态页面，所以可以考虑将页面数据保存到后台
+如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好###2.2设计
+每次分享后端生成一条分享记录，生成失效时间保存下来
+生成一个url，包含">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rulerp的第一个blog">
-<meta property="og:url" content="http://yoursite.com/2017/03/21/rulerp的第一个blog/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/03/21/逻辑建模开发/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="12345">
-<meta property="og:updated_time" content="2017-03-21T07:04:00.000Z">
+<meta property="og:description" content="[toc]
+##1.需要登录
+
+直接打开，打开后跳到登陆页面，登陆之后会重定向到刚才的页面。
+暂不支持线上##2.不需要登录
+没有过滤器，展示静态数据###2.1分析
+由于是生成静态页面，所以可以考虑将页面数据保存到后台
+如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好###2.2设计
+每次分享后端生成一条分享记录，生成失效时间保存下来
+生成一个url，包含">
+<meta property="og:updated_time" content="2017-03-21T07:36:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rulerp的第一个blog">
-<meta name="twitter:description" content="12345">
+<meta name="twitter:description" content="[toc]
+##1.需要登录
+
+直接打开，打开后跳到登陆页面，登陆之后会重定向到刚才的页面。
+暂不支持线上##2.不需要登录
+没有过滤器，展示静态数据###2.1分析
+由于是生成静态页面，所以可以考虑将页面数据保存到后台
+如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好###2.2设计
+每次分享后端生成一条分享记录，生成失效时间保存下来
+生成一个url，包含">
 
 
 
@@ -124,7 +151,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/21/rulerp的第一个blog/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/21/逻辑建模开发/"/>
 
 
 
@@ -196,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -206,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -249,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/rulerp的第一个blog/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/逻辑建模开发/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -283,7 +310,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-21T15:02:52+08:00">
                 2017-03-21
@@ -321,7 +348,21 @@
       
 
       
-        <p>1<br>2<br>3<br>4<br>5</p>
+        <p>[toc]</p>
+<p>##1.需要登录</p>
+<ul>
+<li>直接打开，打开后跳到登陆页面，登陆之后会重定向到刚才的页面。</li>
+<li>暂不支持线上<br>##2.不需要登录</li>
+<li>没有过滤器，展示静态数据<br>###2.1分析</li>
+<li>由于是生成静态页面，所以可以考虑将页面数据保存到后台</li>
+<li>如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好<br>###2.2设计</li>
+<li>每次分享后端生成一条分享记录，生成失效时间保存下来</li>
+<li>生成一个url，包含分享id</li>
+<li>后端异步生成静态数据，由于数据可能会很多，如果保存到数据库中的话可能会影响newbi的数据库性能，所以可以考虑放到ftp中</li>
+<li>由于后端需要将数据缓存到ftp，所以前端页面需要收集当前页面中的数据，推送到后台。</li>
+<li>缓存数据：前端可以直接将数据收集起来，做成一个大的数据发送到后端，这么做带你分享的时候，不知道前端的性能如何，而且仪表盘中有一些图片可能没法打包成一分数据。</li>
+<li>缓存页面：页面缓存不知道前端能不能实现</li>
+</ul>
 
       
     </div>
@@ -430,7 +471,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -484,7 +525,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
