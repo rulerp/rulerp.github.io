@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -87,16 +87,40 @@
 
 
 
-<meta name="description" content="测试">
+<meta name="description" content="1.需要登录
+直接打开，打开后跳到登陆页面，登陆之后会重定向到刚才的页面。
+暂不支持线上2.不需要登录
+没有过滤器，展示静态数据2.1分析
+由于是生成静态页面，所以可以考虑将页面数据保存到后台
+如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好2.2设计
+每次分享后端生成一条分享记录，生成失效时间保存下来
+生成一个url，包含分享id
+后端异步生成静态数据，由">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分享功能后端整理.md">
 <meta property="og:url" content="http://rulerp.github.io/2017/03/21/分享功能后端整理/index.html">
 <meta property="og:site_name" content="任我飞的博客">
-<meta property="og:description" content="测试">
-<meta property="og:updated_time" content="2017-03-21T16:00:43.000Z">
+<meta property="og:description" content="1.需要登录
+直接打开，打开后跳到登陆页面，登陆之后会重定向到刚才的页面。
+暂不支持线上2.不需要登录
+没有过滤器，展示静态数据2.1分析
+由于是生成静态页面，所以可以考虑将页面数据保存到后台
+如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好2.2设计
+每次分享后端生成一条分享记录，生成失效时间保存下来
+生成一个url，包含分享id
+后端异步生成静态数据，由">
+<meta property="og:updated_time" content="2017-03-21T16:43:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分享功能后端整理.md">
-<meta name="twitter:description" content="测试">
+<meta name="twitter:description" content="1.需要登录
+直接打开，打开后跳到登陆页面，登陆之后会重定向到刚才的页面。
+暂不支持线上2.不需要登录
+没有过滤器，展示静态数据2.1分析
+由于是生成静态页面，所以可以考虑将页面数据保存到后台
+如果使用原始接口，那么所有的接口都需要改造成无权限的，还有数据权限的问题，性能也不是很好2.2设计
+每次分享后端生成一条分享记录，生成失效时间保存下来
+生成一个url，包含分享id
+后端异步生成静态数据，由">
 
 
 
@@ -104,8 +128,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -197,6 +221,26 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -330,10 +374,6 @@
 
           
 
-          
-              <div class="post-description">
-                  测试
-              </div>
           
 
         </div>
@@ -577,7 +617,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Pisces
   </a>
 </div>
 
@@ -648,6 +688,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
